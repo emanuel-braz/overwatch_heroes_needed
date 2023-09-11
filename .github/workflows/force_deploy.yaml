@@ -7,6 +7,8 @@ jobs:
   force-deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Trigger GitHub pages rebuild
         run: |
           curl --fail --request POST \

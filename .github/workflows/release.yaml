@@ -2,13 +2,10 @@ name: Create Release on Deploy
 run-name: Released by ${{ github.actor }}
 
 on:
-  workflow_run:
-    workflows: [pages-build-deployment]
-    types:
-      - completed
+  deployment:
+    
 jobs:
   create-release-on-deploy:
-      if: ${{ github.event.workflow_run.conclusion == 'success' }}
       name: Create and publish release
       runs-on: ubuntu-latest
       steps:
