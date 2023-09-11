@@ -1,7 +1,7 @@
-## Quick Start 🚀
+### Quick Start 🚀
 
 ### Prerequisites 📝
 
 ### Installing 🧑‍💻
 
-## Goals 🎯
+### Goals 🎯
