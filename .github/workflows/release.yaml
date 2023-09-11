@@ -1,0 +1,37 @@
+name: Create Release on Deploy
+run-name: Released by ${{ github.actor }}
+
+on:
+  workflow_run:
+    workflows: [pages-build-deployment]
+    types:
+      - completed
+jobs:
+  create-release-on-deploy:
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+      name: Create and publish release
+      runs-on: ubuntu-latest
+      steps:
+
+      - uses: actions/checkout@v4
+      
+      - name: Current date
+        id: date
+        run: |
+              echo "::set-output name=tag::$(date "+%Y%m%d%H%M")"
+              echo "::set-output name=today::$(date "+%d/%m/%Y %H:%M")"
+
+      - name: Create release
+        uses: emanuel-braz/github-actions/create_update_release@0.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: "Release ${{ steps.date.outputs.today }}"
+          tag: "${{ steps.date.outputs.tag }}"
+          generate_release_notes: true
+          pre_release: false
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
+    
