@@ -1,5 +1,5 @@
 // Create a card for each tank hero
-fetch('../data/tanks.json')
+fetch('./data/tanks.json')
 .then(response => response.json())
 .then(json => {
   for (var i = 0; i < json.items.length; i++) {
@@ -9,7 +9,7 @@ fetch('../data/tanks.json')
 .catch(error => console.log(error));
 
 // Create a card for each damage hero
-fetch('../data/damages.json')
+fetch('./data/damages.json')
 .then(response => response.json())
 .then(json => {
   for (var i = 0; i < json.items.length; i++) {
@@ -19,7 +19,7 @@ fetch('../data/damages.json')
 .catch(error => console.log(error));
 
 // Create a card for each support hero
-fetch('../data/supports.json')
+fetch('./data/supports.json')
 .then(response => response.json())
 .then(json => {
   for (var i = 0; i < json.items.length; i++) {
