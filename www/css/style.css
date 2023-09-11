@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  width: 100%;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+header {
+  background-color: #fbeeff;
+  color: #c77373;
+  padding: 0 20px 20px 20px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+p {
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+section {
+  margin: 0 6px;
+  padding: 6px;
+}
+
+ul.grid {
+  list-style: none;
+}
+
+ul.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding-inline-start: 4px;
+}
+
+.tank {
+  background-color: #fc8d8b;
+  color: aqua;
+}
+
+li {
+  padding: 10px;
+  text-align: center;
+  min-width: 6.5rem;
+  max-width: 6.5rem;
+  min-height: 4.5rem;
+  border-radius: 6px;
+}
+
+img.avatar{
+  max-width: 6rem;
+  min-width: 6rem;
+  border: #052639 2px solid;
+  border-radius: 6px;
+  box-shadow: inset 0 4px 30px #00214e;
+}
+
+a {
+  text-decoration: none;
+  color: #4a9ac9;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background-color: #fbeeff;
+  color: #c77373;
+  text-align: center;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  max-height: 60vh;
+  overflow-y: auto;
+  transform: translateY(0);
+  transition: transform .3s ease 0s;
+}
+
+.footer-container .footer-image {
+  margin-left: 20px;
+}
+
+/* change text */
+@keyframes change-text {
+  0% {
+    content: "“Todos nós precisamos de ajuda de vez em quando.”";
+  }
+  33.33% {
+    content: "“Ajudar quem precisa é a própria recompensa.”";
+  }
+  66.66% {
+    content: "“Onde eu posso ser útil agora?”";
+  }
+  100% {
+    content: "“Eu vejo melhorias...”";
+  }
+}
+
+.text-container { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.text {
+  font-size: 0.8rem; 
+}
+.text::after {
+  display: block;
+  content: "";
+  animation: change-text 15s infinite;
+}
